@@ -1,18 +1,18 @@
 # Fdb version 3
-["biber bare_jrnl"] 1668759657 "bare_jrnl.bcf" "bare_jrnl.bbl" "bare_jrnl" 1668762582
-  "bare_jrnl.bcf" 1668762581 106509 9a67570959d3e9b03538ee487046cabb "pdflatex"
+["biber bare_jrnl"] 1668759657 "bare_jrnl.bcf" "bare_jrnl.bbl" "bare_jrnl" 1668775597
+  "bare_jrnl.bcf" 1668775596 106509 9a67570959d3e9b03538ee487046cabb "pdflatex"
   (generated)
   "bare_jrnl.blg"
   "bare_jrnl.bbl"
-["pdflatex"] 1668762578 "c:/Users/ZhenyuZHOU/Desktop/Report/bare_jrnl.tex" "c:/Users/ZhenyuZHOU/Desktop/Report/bare_jrnl.pdf" "bare_jrnl" 1668762582
+["pdflatex"] 1668775594 "c:/Users/ZhenyuZHOU/Desktop/Report/bare_jrnl.tex" "c:/Users/ZhenyuZHOU/Desktop/Report/bare_jrnl.pdf" "bare_jrnl" 1668775597
   "Figure/18-11-2022/histogram_1.jpg" 1668672839 19951 68acfd7b71b48c94653fa24d714e9d72 ""
   "Figure/18-11-2022/histogram_2.jpg" 1668672839 23549 d0688f846ce0770864f5e394488bf345 ""
   "Figure/18-11-2022/histogram_3.jpg" 1668672839 20042 93c729fdbabcb82ebee1b8b36765c2b1 ""
   "Figure/18-11-2022/histogram_4.jpg" 1668672839 21998 39bd1f00a3f729ebaf4accdc84dc94c1 ""
-  "bare_jrnl.aux" 1668762581 6981 60d9556f3e527e8000fb578f99c25625 "pdflatex"
+  "bare_jrnl.aux" 1668775596 6981 c92e5a7da94cf67fff13dc7ad94e3ebe "pdflatex"
   "bare_jrnl.bbl" 1668759660 486 f7f239c736cf01ac6ce7bd829f9b3c7b "biber bare_jrnl"
-  "bare_jrnl.out" 1668762581 2904 e075cba7b32089e26c98e7dd5a3768b2 "pdflatex"
-  "bare_jrnl.run.xml" 1668762581 2340 89a8b29d3b1affa575bc606a8e666db3 "pdflatex"
+  "bare_jrnl.out" 1668775596 2904 e075cba7b32089e26c98e7dd5a3768b2 "pdflatex"
+  "bare_jrnl.run.xml" 1668775596 2340 89a8b29d3b1affa575bc606a8e666db3 "pdflatex"
   "bare_jrnl.tex" 1668672839 954 79f5493ae915804df9d77d743214d751 ""
   "c:/Program Files/texlive/2021/texmf-dist/fonts/map/fontname/texfonts.map" 1637210819 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "c:/Program Files/texlive/2021/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmbsy6.tfm" 1637210236 1124 14ccf5552bc7f77ca02a8a402bea8bfb ""
@@ -148,15 +148,15 @@
   "c:/Program Files/texlive/2021/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1637212277 5211389 435cd99ac94920a2cf8ede55e16fddbb ""
   "c:/Program Files/texlive/2021/texmf-var/web2c/pdftex/pdflatex.fmt" 1637212458 2724810 569afd470390ec8ffcf011834bf06b27 ""
   "c:/Program Files/texlive/2021/texmf.cnf" 1637212254 713 e69b156964470283e0530f5060668171 ""
-  "c:/Users/ZhenyuZHOU/Desktop/Report/bare_jrnl.aux" 1668762581 6981 60d9556f3e527e8000fb578f99c25625 ""
+  "c:/Users/ZhenyuZHOU/Desktop/Report/bare_jrnl.aux" 1668775596 6981 c92e5a7da94cf67fff13dc7ad94e3ebe ""
   "c:/Users/ZhenyuZHOU/Desktop/Report/bare_jrnl.tex" 1668672839 954 79f5493ae915804df9d77d743214d751 ""
-  "weekly-report/18-11-2022/report.tex" 1668762574 19746 d963b179d5f4ba098cded840ba452105 ""
+  "weekly-report/18-11-2022/report.tex" 1668775594 20580 b2931e27681c35c0e1abb40d04a89322 ""
   (generated)
-  "bare_jrnl.pdf"
-  "c:/Users/ZhenyuZHOU/Desktop/Report/bare_jrnl.pdf"
-  "bare_jrnl.run.xml"
-  "c:/Users/ZhenyuZHOU/Desktop/Report/bare_jrnl.log"
   "bare_jrnl.bcf"
-  "bare_jrnl.aux"
+  "c:/Users/ZhenyuZHOU/Desktop/Report/bare_jrnl.log"
+  "c:/Users/ZhenyuZHOU/Desktop/Report/bare_jrnl.pdf"
   "bare_jrnl.log"
   "bare_jrnl.out"
+  "bare_jrnl.pdf"
+  "bare_jrnl.run.xml"
+  "bare_jrnl.aux"
