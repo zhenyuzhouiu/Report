@@ -1,9 +1,9 @@
-[0] Config.pm:311> INFO - This is Biber 2.16
-[0] Config.pm:314> INFO - Logfile is 'bare_jrnl.blg'
-[179] biber-MSWIN32:340> INFO - === 
-[248] Biber.pm:415> INFO - Reading 'bare_jrnl.bcf'
-[491] Biber.pm:952> INFO - Found 0 citekeys in bib section 0
-[501] Utils.pm:395> WARN - The file 'bare_jrnl.bcf' does not contain any citations!
-[520] bbl.pm:654> INFO - Writing 'bare_jrnl.bbl' with encoding 'UTF-8'
-[521] bbl.pm:757> INFO - Output to bare_jrnl.bbl
-[521] Biber.pm:128> INFO - WARNINGS: 1
+[0] Config.pm:307> INFO - This is Biber 2.17
+[0] Config.pm:310> INFO - Logfile is 'bare_jrnl.blg'
+[54] biber:340> INFO - === Sat Nov 19, 2022, 00:15:36
+[66] Biber.pm:418> INFO - Reading 'bare_jrnl.bcf'
+[110] Biber.pm:972> INFO - Found 0 citekeys in bib section 0
+[119] bbl.pm:654> INFO - Writing 'bare_jrnl.bbl' with encoding 'UTF-8'
+[119] bbl.pm:757> INFO - Output to bare_jrnl.bbl
+[119] Biber.pm:130> WARN - The file 'bare_jrnl.bcf' does not contain any citations!
+[119] Biber.pm:132> INFO - WARNINGS: 1

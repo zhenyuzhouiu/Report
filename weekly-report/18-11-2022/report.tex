@@ -6,20 +6,20 @@ I have tried linear, log, and histogram to normalize image for getting better bo
 \begin{figure}[ht!]
     \centering
     \subfloat[]{
-        \includegraphics[width=3in]{Figure/18-11-2022/histogram_1.jpg}
+        \includegraphics[width=2in]{Figure/18-11-2022/histogram_1.jpg}
         \label{}
     }
     \subfloat[]{
-        \includegraphics[width=3in]{Figure/18-11-2022/histogram_2.jpg}
+        \includegraphics[width=2in]{Figure/18-11-2022/histogram_2.jpg}
         \label{}
     }
 
     \subfloat[]{
-        \includegraphics[width=3in]{Figure/18-11-2022/histogram_3.jpg}
+        \includegraphics[width=2in]{Figure/18-11-2022/histogram_3.jpg}
         \label{}
     }
     \subfloat[]{
-        \includegraphics[width=3in]{Figure/18-11-2022/histogram_4.jpg}
+        \includegraphics[width=2in]{Figure/18-11-2022/histogram_4.jpg}
         \label{}
     }
 
@@ -94,7 +94,7 @@ Because the triplet loss function only focus on the distance between probe image
 \end{table}
 
 \subsection{Using spatial transformer network to increase RFN performance}
-Spatial transformer network (STN) can learn the matrix of homography transform to affine finger knuckle. If the loss higher than a threshold during training process, I freeze the spatial transformer network layer without updating weights. And the STN just output $\begin{bmatrix} 1 & 0 & 0 \\ 0 & 1 & 0 \end{bmatrix}$ matrix. When the loss lower than a threshold, the STN weights can be updated for outputting a transform matrix.
+Spatial transformer network (STN) can learn the matrix of homography transform to affine finger knuckle. If the loss higher than a threshold during training process, I freeze the spatial transformer network layer without updating weights. And the STN just output $\begin{bmatrix} 1 & 0 & 0 \\ 0 & 1 & 0 \end{bmatrix}$ matrix. When the loss lower than a threshold, the STN weights can be updated for outputting a transform matrix. \textcolor{red}{When I use the STN module to improve RFN performance, from the Table \ref{stn}, the STN module can improve the RFN model silght}
 
 \begin{table}[h]
     \caption{Peformance of spatial transfomer network based on RFN}
@@ -116,7 +116,7 @@ Spatial transformer network (STN) can learn the matrix of homography transform t
 \end{table}
 
 \subsection{Using Rotation and Shift Invariant loss to train RFN model}
-Above experiments are based on the MSE loss function to train model, then I use the RSIL loss function to replace the MSE loss function to test the performance. From above 
+Above experiments are based on the MSE loss function to train model, then I use the RSIL loss function to replace the MSE loss function to test the performance. From the below Table
 
 \begin{table}[h]
     \caption{Peformance of RSIL loss based on RFN}
@@ -129,6 +129,17 @@ Above experiments are based on the MSE loss function to train model, then I use 
     \end{tabular}
     \label{rsil}
 \end{table}
+
+\begin{figure}[ht!]
+    \centering
+    \subfloat[]{
+        \includegraphics[width=2in]{Figure/18-11-2022/roc.pdf}
+        \label{}
+    }
+
+    \caption{Comprative mathing performance with ROC cure on the littler finger knuckle, ring finger knuckle, and index finger knuckle of left hand.}
+    \label{rfn-rsil}
+\end{figure}
 
 \subsubsection{Data augmentation}
 \begin{table}[h]
@@ -146,9 +157,68 @@ Above experiments are based on the MSE loss function to train model, then I use 
     \end{tabular}
     \label{data-augmentation}
 \end{table}
-From the Table \ref{data-augmentation}, I used the left part data augmentation algorithm, because the right part algorithm will totally change the finger knuckle texture which cannot be solved by RFN-RSIL model. Meanwhile, the RFN-RSIL model gets the best performance form above experiments, therefore, I continue to use the RFN-RSIL model.
+From the Table \ref{data-augmentation}, I used the left part data augmentation algorithm, because the right part algorithm will totally change the finger knuckle texture which cannot be solved by RFN-RSIL model. Meanwhile, the RFN-RSIL model gets the best performance form above experiments, therefore, I continue to use the RFN-RSIL model. \textcolor{red}{The model is still be trained, so I cannot show any performance result at here.}
 
 \subsection{Find the best score fusion parameter}
 \subsubsection{Dynamic fusion}
+\begin{equation}
+    fusion\_score = w\times knuckle\_score + (1-w)\times print\_score
+\end{equation}
+\textcolor{red}{I have changed the $w$ from 0 to 1, the step size is 0.05, and I can get the best fusion score when $w$ equal to 0.35.} I mainly tried on the little finger and ring finger of left hand. From the 
+
+\begin{figure}[ht!]
+    \centering
+    \subfloat[]{
+        \includegraphics[width=2in]{Figure/18-11-2022/dynamic_score_01.pdf}
+        \label{}
+    }
+    \subfloat[]{
+        \includegraphics[width=2in]{Figure/18-11-2022/dynamic_score_02.pdf}
+        \label{}
+    }
+
+    \caption{When the $w$ equal to 0.35, the dynamic fusion score algorithm can get the best matching performance on the (a)little finger of left hand (b) ring finger of left hand. }
+    \label{dynamic-score}
+\end{figure}
+
 \subsubsection{Holistic Fusion}
+\begin{equation}
+    fusion\_score = (w\times knuckle\_score + (1-w) \times print\_score) \times (1 + 1 / (2 - knuckle\_score))
+\end{equation}
+I also changed the $w$ from 0 to 1 with step size 0.05 on the Equation (2). From the Fig. \ref{holistic} and Fig. \ref{dynamic-score}, their performance is same from the ROC curve.
+\begin{figure}[ht!]
+    \centering
+    \subfloat[]{
+        \includegraphics[width=2in]{Figure/18-11-2022/holistic_score_01.pdf}
+        \label{}
+    }
+    \subfloat[]{
+        \includegraphics[width=2in]{Figure/18-11-2022/holistic_score_02.pdf}
+        \label{}
+    }
+
+    \caption{When the $w$ equal to 0.2, the holistic fusion score algorithm can get the best matching performance on the (a)little finger of left hand (b) ring finger of left hand. }
+    \label{holistic}
+\end{figure}
+
 \subsubsection{Nonlinear Fusion}
+\begin{equation}
+    fusion\_score = ((1 + print)/(1 + knuckle))^{\alpha} \times (1 + knuckle)^2
+\end{equation}
+As for the nonlinear fusion method, we can change the $\alpha$ from 1 to 2, then I use $0.05$ step size to change the parameter. When the $alpha$ is 1.45, then the nonlinear fusion method can get the best performance, from the Fig. \ref{nonlinear}. \textcolor{red}{From only test on the little finger and ring finger of left hand, the nonlinear fusion method is the best.}
+
+\begin{figure}[ht!]
+    \centering
+    \subfloat[]{
+        \includegraphics[width=2in]{Figure/18-11-2022/nonlinear_score_01.pdf}
+        \label{}
+    }
+    \subfloat[]{
+        \includegraphics[width=2in]{Figure/18-11-2022/nonlinear_socre_02.pdf}
+        \label{}
+    }
+
+    \caption{When the $w$ equal to 0.45, the holistic fusion score algorithm can get the best matching performance on the (a)little finger of left hand (b) ring finger of left hand. }
+    \label{nonlinear}
+\end{figure}
+
