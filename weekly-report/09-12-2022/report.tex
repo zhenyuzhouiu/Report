@@ -23,11 +23,14 @@ The quadruplet loss can increase inter-class variance and decrease  intra-class 
     \label{quadruplet}
 \end{table}
 
+From the above Table \ref{quadruplet}, we  can find two cases which was bolded can get the best finger knuckle matching performance on the little, ring, and index finger knuckle of left hand. Therefore, we use two of them to test finger knuckle matching performance on the rest finger knuckle from the Table \ref{quadruplet-best}. The performance of RSSSIM-0.5-0.3 and RSSSIM-0.6-0.3 are similar with each other, but the RSSIM-0.6-0.3 is slightly better than the RSSSIM-0.5-0.3.
+
 
 % Please add the following required packages to your document preamble:
 % \usepackage{multirow}
 \begin{table}[ht]
     \centering
+    \caption{Compare RSSSIM-0.5-0.3 and RSSSIM-0.6-0.3 matching performance}
     \begin{tabular}{cccc}
     \hline
     \multicolumn{2}{c}{Performance}     & RSSSIM-0.5-0.3 & RSSIM-0.6-0.3 \\ \hline
@@ -50,6 +53,54 @@ The quadruplet loss can increase inter-class variance and decrease  intra-class 
     \multirow{2}{*}{Right-Little} & EER & 6.00\%         & 5.39\%        \\
                                   & GAR & 84.00\%        & 83.00\%       \\ \hline
     \end{tabular}
+    \label{quadruplet-best}
 \end{table}
 
+
 \subsection{Finger Knuckle and Fingerprint Score Fusion}
+I have tried dynamic, holistic, and nonlinear fusion method to fusion finger knuckle matching score and fingerprint matching score. After comparing these three different fusion method, the performance of dynamic and holistic method are similar, and all of them are better than the nonlinear fusion method. As a result, the performance of holistic method is slightly better than the dynamic method, then I choose it to show the fusion performance as shown on the Fig. \ref{fusion-score}
+
+\begin{figure}[ht!]
+    \centering
+    \subfloat[]{
+        \includegraphics[width=2in]{Figure/09-12-2022/01(0.3-0.7).pdf}
+        \label{}
+    }
+    \subfloat[]{
+        \includegraphics[width=2in]{Figure/09-12-2022/02(0.35-0.65).pdf}
+        \label{}
+    }
+    \subfloat[]{
+        \includegraphics[width=2in]{Figure/09-12-2022/04(0.75-0.25).pdf}
+        \label{}
+    }
+
+    \subfloat[]{
+        \includegraphics[width=2in]{Figure/09-12-2022/05(0.3-0.7).pdf}
+        \label{}
+    }
+    \subfloat[]{
+        \includegraphics[width=2in]{Figure/09-12-2022/06(0.5-0.5).pdf}
+        \label{}
+    }
+    \subfloat[]{
+        \includegraphics[width=2in]{Figure/09-12-2022/07(0.2-0.8).pdf}
+        \label{}
+    }
+
+    \subfloat[]{
+        \includegraphics[width=2in]{Figure/09-12-2022/08(0.3-0.7).pdf}
+        \label{}
+    }
+    \subfloat[]{
+        \includegraphics[width=2in]{Figure/09-12-2022/09(0.25-0.75).pdf}
+        \label{}
+    }
+    \subfloat[]{
+        \includegraphics[width=2in]{Figure/09-12-2022/10(0.55-0.45).pdf}
+        \label{}
+    }
+
+    \caption{Verification performance using holistic method to fusion finger knuckle and fingerprint matching score. (a) left little, (b) left ring, (c) left index, (d) left thumb, (e) right thumb, (f) right index, (g) right middle, (h) right ring, (i) right little.}
+    \label{fusion-score}
+\end{figure}
